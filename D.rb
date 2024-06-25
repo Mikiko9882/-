@@ -278,3 +278,47 @@ result = n.reverse.scan(/\d{1,3}/).join(",").reverse
 
 # 結果を出力
 puts result
+
+
+# 2 * 2 の出力 二次元配列
+0 8
+1 3
+
+# 数値を配列に格納
+numbers = [0, 8, 1, 3]
+
+# 二次元配列に数値を配置
+matrix = [
+  [numbers[0], numbers[1]],
+  [numbers[2], numbers[3]]
+]
+
+# 二次元配列を出力
+matrix.each do |row|
+  puts row.join(' ')
+end
+
+
+# 3 * 3 の出力
+# 入力を受け取って配列に変換
+numbers = gets.split.map(&:to_i)
+
+# 3行3列の形式で出力
+(0..2).each do |i|
+  puts numbers[i*3, 3].join(' ')
+end
+
+
+# 九九表の出力
+n = []
+
+# 1から9までの掛け算の結果を配列に追加
+(1..9).each do |i|
+  (1..9).each do |j|
+    n << i * j
+  end
+end
+
+(0..8).each do |i|
+  puts n[i*9, 9].join(' ')
+end
