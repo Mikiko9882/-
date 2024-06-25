@@ -178,3 +178,88 @@ characters.each do |c|
   end
 end
 
+# 100行の整数の入力
+a = Array.new(100)
+100.times { |i| a[i] = gets.to_i }
+a.each { |val| puts val }
+
+
+# 2 行目で与えられる N 個の整数の入力
+# 1行目で整数 N を読み取る
+n = gets.to_i
+
+# 2行目で N 個の整数を読み取る
+numbers = gets.split.map(&:to_i)
+
+# 各整数を改行区切りで出力する
+numbers.each do |num|
+  puts num
+end
+
+
+# 2 行目で与えられる N 個の入力
+# 1 行目で与えられる整数 N を取得
+n = gets.to_i
+
+# 2 行目で与えられる N 個の文字列を取得
+strings = gets.split
+
+# 各文字列を改行区切りで出力
+strings.each { |str| puts str }
+
+
+# 1 行目で与えられる N 個の整数の入力
+input = gets.split.map(&:to_i)
+
+n = input[0]
+
+numbers = input[1..n]
+
+numbers.each { |num| puts num }
+
+
+# 1 行目で与えられる N と N 個の文字列を取得
+input = gets.split
+
+# 最初の要素を整数 N として取得
+n = input[0].to_i
+
+# 残りの N 個の文字列を取得
+strings = input[1..n]
+
+# 各文字列を改行区切りで出力
+strings.each { |str| puts str }
+
+
+# N 組の整数の入力
+# 1 行目で与えられる整数 N を取得
+n = gets.to_i
+
+# 2 行目以降の N 行で与えられる整数のペアを取得し、配列に格納
+pairs = Array.new(n) { gets.chomp }
+
+# 各ペアを改行区切りで出力
+pairs.each { |pair| puts pair }
+
+
+
+# 【N 行 M 列のデータの入力】行ごとに要素数の異なる整数列の入力
+入力例1
+3
+1 8
+2 8 1
+3 8 1 3
+
+出力例1
+8
+8 1
+8 1 3
+
+n = gets.to_i
+
+m = Array.new(n) { gets.chomp.split }
+
+m.each do |row|
+  row.shift  # 先頭の M_i を取り除く
+  puts row.join(' ')  # 残りの部分をスペース区切りで出力
+end
