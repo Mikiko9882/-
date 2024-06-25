@@ -263,3 +263,18 @@ m.each do |row|
   row.shift  # 先頭の M_i を取り除く
   puts row.join(' ')  # 残りの部分をスペース区切りで出力
 end
+
+
+
+# 大きな数値を 3 けたごとにカンマ区切りで出力
+n = gets.chomp
+
+# n.reverse で文字列を逆順にする。これにより、末尾から3桁ごとに区切ることが容易になる。
+# scan(/\d{1,3}/) で逆順にした文字列を3桁ごとに分割
+# join(",") で分割された部分をカンマで連結
+# 最後に reverse で再び文字列を元の順序に戻す
+# \d{1,3} は「1桁から3桁の数字」を意味する
+result = n.reverse.scan(/\d{1,3}/).join(",").reverse
+
+# 結果を出力
+puts result
