@@ -79,13 +79,11 @@ printf(format_string, n)
 0.813 2
 0.813 3
 0.813 4
-
 出力例1
 0.8
 0.81
 0.813
 0.8130
-
 q = gets.to_i
 # NとMのペアを読み取る
 pairs = Array.new(q) { gets.chomp }
@@ -102,4 +100,55 @@ pairs.each do |pair|
   printf(format_string, n)
   puts  # 改行を追加
 end
+
+
+入力例1
+3 10 99
+出力例1
+(10, 99), (10, 99), (10, 99)
+n, a, b = gets.split.map(&:to_i)
+
+# (A, B)の形式の文字列をN回繰り返してカンマと半角スペース区切りで連結
+result = Array.new(n, "(#{a}, #{b})").join(", ")
+
+# 結果を出力
+puts result
+
+
+# 九九の表をおしゃれにする
+(1..9).each do |i|
+  (1..9).each do |j|
+    # 2桁になるように数値を出力し、区切り文字を追加
+    if j < 9
+      printf("%2d | ", i * j)
+    else
+      printf("%2d\n", i * j)
+    end
+  end
+  # 行の間に区切り線を追加
+  if i < 9
+    42.times { print "=" }
+    puts
+  end
+end
+
+
+入力例1
+2 3 7 8
+出力例1
+(7, 8) | (7, 8) | (7, 8)
+========================
+(7, 8) | (7, 8) | (7, 8)
+h, w, a, b = gets.split.map(&:to_i)
+
+line = Array.new(w, "(#{a}, #{b})").join(" | ")
+# 生成された1行分の文字列の長さを計算
+line_width = line.length
+# h 行分のループを開始します。h は与えられた行数です。i は現在の行のインデックスです。0から始まり、h-1 まで増加します。
+# 現在の行が最後の行でない場合（i < h - 1）、区切り線を出力します。
+h.times do |i|
+    puts line
+    puts "=" * line_width if i < h - 1
+end
+
 
