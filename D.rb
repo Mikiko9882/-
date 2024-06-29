@@ -322,3 +322,34 @@ end
 (0..8).each do |i|
   puts n[i*9, 9].join(' ')
 end
+
+
+# N 個の文字を半分ずつ出力
+n = gets.to_i
+
+# 1 以上 N/2 以下の数値を取得
+first_half = (1..n/2).to_a
+
+# N/2 + 1 以上 N 以下の数値を取得
+second_half = ((n/2 + 1)..n).to_a
+
+# 各配列をスペース区切りで出力
+puts first_half.join(' ')
+puts second_half.join(' ')
+
+
+入力例1
+4
+出力例1
+1
+1 2
+1 2 3
+1 2 3 4
+# 標準入力から N を取得
+n = gets.to_i
+
+# 1から N までの各行について処理
+(1..n).each do |i|
+  # 1から i までの数列を作成して出力
+  puts (1..i).to_a.join(' ')
+end
