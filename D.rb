@@ -200,10 +200,8 @@ end
 # 2 行目で与えられる N 個の入力
 # 1 行目で与えられる整数 N を取得
 n = gets.to_i
-
 # 2 行目で与えられる N 個の文字列を取得
 strings = gets.split
-
 # 各文字列を改行区切りで出力
 strings.each { |str| puts str }
 
@@ -250,12 +248,10 @@ pairs.each { |pair| puts pair }
 1 8
 2 8 1
 3 8 1 3
-
 出力例1
 8
 8 1
 8 1 3
-
 n = gets.to_i
 
 m = Array.new(n) { gets.chomp.split }
@@ -392,5 +388,38 @@ n.times do
   m = gets.to_i
   # 3桁にするために前に半角スペースを埋めて出力
   printf("%3d\n", m)
+end
+
+
+入力例1
+5 2
+1 2 3 4 5
+出力例1
+2
+n, m = gets.split.map(&:to_i)
+a = gets.split.map(&:to_i)
+
+# M番目の値を出力（Mは1始まりなので、インデックスとしてはM-1）
+puts a[m-1]
+
+
+
+入力例1
+5
+10 20 30 40 50
+3
+2 4 1
+出力例1
+20
+40
+10
+n = gets.to_i
+a = gets.split.map(&:to_i)
+q = gets.to_i
+b = gets.split.map(&:to_i)
+
+# 数列Bの各要素に対して、数列Aの対応する要素を出力
+b.each do |bi|
+  puts a[bi - 1]
 end
 

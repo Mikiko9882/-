@@ -152,3 +152,17 @@ h.times do |i|
 end
 
 
+# 文字列の配列
+h, w, r, c = gets.split.map(&:to_i)
+
+# 迷路の各行を読み取って配列に格納する
+pairs = Array.new(h) { gets.chomp }
+
+# 指定されたマスが壁かどうかを判定
+if pairs[r - 1][c - 1] == '#'
+  puts "Yes"
+else
+  puts "No"
+end
+
+
