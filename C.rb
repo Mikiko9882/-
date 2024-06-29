@@ -51,3 +51,55 @@ a.each do |card|
   end
   puts point
 end
+
+
+入力例4
+0.813 4
+出力例4
+0.8130
+
+input_line = gets
+
+# 入力を分割して N と M を取得
+n, m = input_line.split
+n = n.to_f
+m = m.to_i
+
+# フォーマット文字列を作成
+format_string = "%.#{m}f"
+
+# フォーマットを使って出力
+printf(format_string, n)
+
+
+
+入力例1
+4
+0.813 1
+0.813 2
+0.813 3
+0.813 4
+
+出力例1
+0.8
+0.81
+0.813
+0.8130
+
+q = gets.to_i
+# NとMのペアを読み取る
+pairs = Array.new(q) { gets.chomp }
+# 各ペアについて処理を行う
+pairs.each do |pair|
+  n, m = pair.split
+  n = n.to_f
+  m = m.to_i
+
+  # フォーマット文字列を作成
+  format_string = "%.#{m}f"
+
+  # フォーマットを使って出力
+  printf(format_string, n)
+  puts  # 改行を追加
+end
+

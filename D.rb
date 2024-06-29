@@ -231,6 +231,7 @@ strings = input[1..n]
 strings.each { |str| puts str }
 
 
+
 # N 組の整数の入力
 # 1 行目で与えられる整数 N を取得
 n = gets.to_i
@@ -268,14 +269,12 @@ end
 
 # 大きな数値を 3 けたごとにカンマ区切りで出力
 n = gets.chomp
-
 # n.reverse で文字列を逆順にする。これにより、末尾から3桁ごとに区切ることが容易になる。
 # scan(/\d{1,3}/) で逆順にした文字列を3桁ごとに分割
 # join(",") で分割された部分をカンマで連結
 # 最後に reverse で再び文字列を元の順序に戻す
 # \d{1,3} は「1桁から3桁の数字」を意味する
 result = n.reverse.scan(/\d{1,3}/).join(",").reverse
-
 # 結果を出力
 puts result
 
@@ -353,3 +352,45 @@ n = gets.to_i
   # 1から i までの数列を作成して出力
   puts (1..i).to_a.join(' ')
 end
+
+
+
+# N を丸めて小数第 3 位まで出力
+input_line = gets
+
+# 実数に変換
+n = input_line.to_f
+
+# 小数第 3 位まで丸めて出力
+printf('%.3f', n)
+
+
+
+# 自然数を 3 けたになるよう、半角スペース埋めで出力します。
+n = gets.to_i
+
+# フォーマット文字列を使って出力
+printf("%3d\n", n)
+
+
+
+入力例1
+4
+0
+8
+81
+813
+出力例1
+0
+8
+81
+813
+n = gets.to_i
+
+# N個の数値を読み取る
+n.times do
+  m = gets.to_i
+  # 3桁にするために前に半角スペースを埋めて出力
+  printf("%3d\n", m)
+end
+
