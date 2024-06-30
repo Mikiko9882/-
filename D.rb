@@ -423,3 +423,36 @@ b.each do |bi|
   puts a[bi - 1]
 end
 
+
+a, b = gets.split.map(&:to_i)
+# ビット演算子 ^ を使用して XOR 演算を行う
+puts a ^ b
+
+
+a, b = gets.split.map(&:to_i)
+# AND 演算を行い、その結果を反転させる（NAND 演算）
+nand_result = ~(a & b) & 1
+# 結果を出力
+puts nand_result
+
+
+# 入力を読み取る
+a, b = gets.split.map(&:to_i)
+# キャリー (C) とサム (S) を計算する
+c = a & b       # AND 演算でキャリーを計算
+s = a ^ b       # XOR 演算でサムを計算
+# 結果を出力する
+puts c
+puts s
+
+
+# 論理演算よくわからん
+# 入力を読み取る
+a, b, c1 = gets.split.map(&:to_i)
+# サム (S) を計算
+s = a ^ b ^ c1
+# キャリーアウト (C2) を計算
+c2 = (a & b) | (b & c1) | (a & c1)
+# 結果を出力
+puts c2
+puts s
