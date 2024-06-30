@@ -166,3 +166,127 @@ else
 end
 
 
+# 数値の出現率
+n = gets.to_i
+a = gets.split.map(&:to_i)
+
+# 出現回数をカウントする配列を用意（0〜9の10個のカウント用）
+counts = Array.new(10, 0)
+
+# 各数字の出現回数をカウント
+a.each do |num|
+  counts[num] += 1
+end
+
+# 出現回数をスペース区切りで出力
+puts counts.join(" ")
+
+
+
+# 入力を読み取る
+n = gets.to_i
+s = gets.chomp
+
+# アルファベットの出現回数をカウントする配列を用意（a〜zの26個のカウント用）
+counts = Array.new(26, 0)
+
+# 各文字の出現回数をカウント
+s.each_char do |char|
+# 'a'.ord は常に97なので、char.ord - 'a'.ord を計算することで、文字 char が 'a' から何番目に当たるかを知ることができる
+  index = char.ord - 'a'.ord
+  counts[index] += 1
+end
+
+# 出現回数をスペース区切りで出力
+puts counts.join(" ")
+
+
+
+n = gets.to_i
+strings = []
+n.times do
+  strings << gets.chomp
+end
+
+# 出現回数をカウントするハッシュを用意
+count_hash = Hash.new(0)
+
+# 各文字列の出現回数をカウント
+strings.each do |str|
+  count_hash[str] += 1
+end
+
+# 辞書順にソートして出力
+count_hash.keys.sort.each do |key|
+  puts "#{key} #{count_hash[key]}"
+end
+
+
+
+n, m = gets.split.map(&:to_i)
+
+# 商品名と価格を格納するハッシュを用意
+product_prices = {}
+
+# 商品名と価格を読み取ってハッシュに格納
+n.times do
+  name, price = gets.split
+  product_prices[name] = price.to_i
+end
+
+# 買い物リストの商品名を読み取って価格を出力
+m.times do
+  item = gets.chomp
+  if product_prices.key?(item)
+    puts product_prices[item]
+  else
+    puts -1
+  end
+end
+
+
+n, q = gets.split.map(&:to_i)
+# リスト S の要素を読み取る
+s = []
+n.times do
+  s << gets.chomp
+end
+# リスト T の要素を読み取る
+t = []
+q.times do
+  t << gets.chomp
+end
+# 各 T_i について最初に一致する S_j を見つける
+t.each do |t_item|
+  index = s.index(t_item)
+  if index
+    puts index + 1  # インデックスは0から始まるので、1を足して出力
+  else
+    puts -1
+  end
+end
+
+
+# 重複した数字を表示しない
+n = gets.to_i
+
+a = gets.split.map(&:to_i)
+# uniq メソッドを使用して配列から重複を取り除く
+unique_a = a.uniq
+
+puts unique_a.join(" ")
+
+
+# 重複の判定 1
+n = gets.to_i
+a = gets.split.map(&:to_i)
+
+# 各要素に対して判定
+(1..n-1).each do |i|
+  if a[0..i-1].include?(a[i])
+    puts "Yes"
+  else
+    puts "No"
+  end
+end
+
